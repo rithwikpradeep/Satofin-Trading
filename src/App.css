@@ -1,3 +1,5 @@
+/* Existing styles remain unchanged */
+
 .App {
   text-align: center;
 }
@@ -21,7 +23,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 .App-link {
@@ -35,4 +37,74 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Updated styles for stocks layout */
+
+body {
+  background-color: #000;
+  color: #daa520;
+}
+
+.stocks-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 auto; /* center the container */
+  max-width: 1200px; /* maximum width to ensure content doesn't stretch too wide on large screens */
+}
+
+.stock-card {
+  flex: 0 0 calc(33.33% - 20px); /* width of each card minus the gap */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #fff;
+  margin: 10px; /* add margin to create a gap between cards */
+  box-sizing: border-box; /* ensures padding and border are included in the width */
+  border: 1px solid #daa520; /* border color */
+  transition: background-color 0.3s, color 0.3s; /* transition for hover effect */
+  
+  /* Flexbox settings for centering */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.stock-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.stock-card:hover {
+  background-color: #daa520;
+  color: #000;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px; /* adjust as needed */
+  margin: 20px 0;
+}
+
+.stocks-section {
+  flex: 1;
+}
+
+.right-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
