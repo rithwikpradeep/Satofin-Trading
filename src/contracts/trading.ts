@@ -32,7 +32,7 @@ export type Asset = {
 export class TradingPlatformApp extends SmartContract {
 
     // A constant defining the maximum number of orders the trading platform can hold.
-    static readonly ORDER_SLOTS = 100
+    static readonly ORDER_SLOTS = 10
 
     // An array to hold the orders. It's a fixed-size array, ensuring a consistent storage structure.
     @prop(true)
@@ -68,6 +68,11 @@ export class TradingPlatformApp extends SmartContract {
         this.orderBook[Number(orderIdx)] = order
         // Ensure the order was placed correctly.
         assert(this.orderBook[Number(orderIdx)].ticker === order.ticker, 'Order placement failed')
+        
+        // Build next output(s)
+        let outputs = this.buildStateOutput(this.ctx.utxo.value)
+        outputs += this.buildChangeOutput()
+        assert(hash256(outputs) == this.ctx.hashOutputs, 'hashOutputs mismatch')
     }
 
     // A method to match a buy order with a sell order.

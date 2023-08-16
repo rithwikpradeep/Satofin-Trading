@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { Button, TextField, FormControl, InputLabel, Select, MenuItem, Snackbar } from '@mui/material';
 import { Asset } from './contracts/trading';
-import { SensiletSigner, hash160 } from 'scrypt-ts';
+import { PubKeyHash, SensiletSigner, hash160, toByteString } from 'scrypt-ts';
 import './PlaceOrder.css';
 
 
@@ -9,17 +9,17 @@ const stockTickers = ["AAPL", "MSFT", "AMZN", "NVDA", "TSLA", "GOOGL", "BRK.B", 
 
 interface PlaceOrderProps {
     onPlace: (order: Asset) => void;
+    signerRef: React.MutableRefObject<SensiletSigner>
     stockTickers: string[];
 }
 
 
-const PlaceOrder: React.FC<PlaceOrderProps> = ({ onPlace }) => {
+const PlaceOrder: React.FC<PlaceOrderProps> = ({ onPlace, signerRef }) => {
     const [ticker, setTicker] = useState<string>('');
     const [quantity, setQuantity] = useState<number>(0);
     const [price, setPrice] = useState<number>(0);
     const [orderType, setOrderType] = useState<boolean | null>(null); // true for buy, false for sell
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
-    const signerRef = useRef<SensiletSigner>();
 
     const handleSubmit = async () => {
         if (!ticker.trim()) {
@@ -42,9 +42,10 @@ const PlaceOrder: React.FC<PlaceOrderProps> = ({ onPlace }) => {
             return;
         }
 
-        const traderAddr = hash160((await signerRef.current!.getDefaultPubKey()).toString());
+        const defaultPubKey = await signerRef.current.getDefaultPubKey()
+        const traderAddr = hash160(defaultPubKey.toHex())
         const order: Asset = {
-            ticker: ticker,
+            ticker: toByteString(ticker, true),
             quantity: BigInt(quantity),
             price: BigInt(price * 100 * 10 ** 6), // Convert to satoshis
             orderType: orderType,

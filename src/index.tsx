@@ -30,9 +30,7 @@ const root = ReactDOM.createRoot(
 // Rendering the main App component inside the root.
 // If the App component or its children are modified, it will affect the entire app's UI and functionality.
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <App />
 );
 
 // This function measures the performance of the app.

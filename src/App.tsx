@@ -22,7 +22,7 @@ const dummyStocks = [
 ];
 
 const contract_id = {
-  txId: "7e4f244d1a75153a9c516a617f09444b24a80f18637b94ff5e73be757800d54f",
+  txId: "c5464d83f5f0dcbc476a531ac1cd00e4681922c237b1360ddb65f3bab953aab9",
   outputIndex: 0,
 };
 
@@ -58,6 +58,7 @@ const App: React.FC = () => {
         TradingPlatformApp,
         contract_id
       );
+      console.log(instance)
       setContract(instance);
     } catch (error: any) {
       console.error("fetchContract error: ", error);
@@ -87,12 +88,15 @@ const App: React.FC = () => {
       nextInstance.orderBook[orderIdx] = order;
 
       contractInstance.methods
-        .placeOrder(order, BigInt(orderIdx), {
-          next: {
-            instance: nextInstance,
-            balance: contractInstance.balance,
-          },
-        })
+        .placeOrder(
+          order,
+          BigInt(orderIdx),
+          {
+            next: {
+              instance: nextInstance,
+              balance: contractInstance.balance,
+            },
+          } as MethodCallOptions<TradingPlatformApp>)
         .then((result) => {
           console.log(`Place order tx: ${result.tx.id}`);
         })
@@ -130,38 +134,38 @@ const App: React.FC = () => {
     }
   };
 
-  
+
   return (
     <div className="app-container">
-        <Header />
+      <Header />
 
-        <div className="main-content">
-            <div className="stocks-section">
-                <div className="stocks-container">
-                    {dummyStocks.map((stock, index) => (
-                        <div key={index} className="stock-card">
-                            <img src={stock.logo} alt={`${stock.ticker} Logo`} />
-                            <div>Ticker: {stock.ticker}</div>
-                            <div>Open: {stock.open}</div>
-                            <div>Close: {stock.close}</div>
-                            <div>Volume: {stock.volume}</div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-
-            <div className="right-section">
-                <PlaceOrder onPlace={handlePlaceOrder} stockTickers={dummyStocks.map(stock => stock.ticker)} />
-            </div>
+      <div className="main-content">
+        <div className="stocks-section">
+          <div className="stocks-container">
+            {dummyStocks.map((stock, index) => (
+              <div key={index} className="stock-card">
+                <img src={stock.logo} alt={`${stock.ticker} Logo`} />
+                <div>Ticker: {stock.ticker}</div>
+                <div>Open: {stock.open}</div>
+                <div>Close: {stock.close}</div>
+                <div>Volume: {stock.volume}</div>
+              </div>
+            ))}
+          </div>
         </div>
 
-        <OrderList orders={contractInstance ? contractInstance.orderBook as Asset[] : []} onMatch={handleMatchOrders} />
+        <div className="right-section">
+          <PlaceOrder onPlace={handlePlaceOrder} signerRef={signerRef} stockTickers={dummyStocks.map(stock => stock.ticker)} />
+        </div>
+      </div>
 
-        <Footer />
+      <OrderList orders={contractInstance ? contractInstance.orderBook as Asset[] : []} onMatch={handleMatchOrders} />
+
+      <Footer />
     </div>
-);
+  );
 
-  
+
 }
 
 export default App;
