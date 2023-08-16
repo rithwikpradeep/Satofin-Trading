@@ -10,15 +10,15 @@ import { Card, CardContent, CardMedia, Typography } from '@mui/material';
 import './App.css';
 
 const dummyStocks = [
-  { ticker: "AAPL", open: 150, close: 155, volume: 1000000, logo: "/apple-logo.png" },
-  { ticker: "MSFT", open: 280, close: 285, volume: 980000, logo: "/microsoft-logo.png" },
-  { ticker: "AMZN", open: 2700, close: 2750, volume: 1200000, logo: "/amazon-logo.png" },
-  { ticker: "NVDA", open: 280, close: 285, volume: 980000, logo: "/nvidia-logo.png" },
-  { ticker: "TSLA", open: 280, close: 285, volume: 980000, logo: "/tesla-logo.png" },
-  { ticker: "GOOGL", open: 280, close: 285, volume: 980000, logo: "/google-logo.png" },
-  { ticker: "BRK.B", open: 280, close: 285, volume: 980000, logo: "/berkshire-logo.png" },
-  { ticker: "UNH", open: 280, close: 285, volume: 980000, logo: "/unitedhealth-logo.png" },
-  { ticker: "LVMH", open: 280, close: 285, volume: 980000, logo: "/LVMH-logo.png" }
+  { ticker: "AAPL", open: 150, close: 155, volume: 1000000, logo: "/apple-logos.png" },
+  { ticker: "MSFT", open: 280, close: 285, volume: 980000, logo: "/microsoft-logos.png" },
+  { ticker: "AMZN", open: 2700, close: 2750, volume: 1200000, logo: "/amazon-logos.png" },
+  { ticker: "NVDA", open: 280, close: 285, volume: 980000, logo: "/nvidia-logos.png" },
+  { ticker: "TSLA", open: 280, close: 285, volume: 980000, logo: "/tesla-logos.png" },
+  { ticker: "GOOGL", open: 280, close: 285, volume: 980000, logo: "/google-logos.png" },
+  { ticker: "BRK.B", open: 280, close: 285, volume: 980000, logo: "/berkshire-logos.png" },
+  { ticker: "UNH", open: 280, close: 285, volume: 980000, logo: "/unitedhealth-logos.png" },
+  { ticker: "LVMH", open: 280, close: 285, volume: 980000, logo: "/LVMH-logos.png" }
 ];
 
 const contract_id = {
