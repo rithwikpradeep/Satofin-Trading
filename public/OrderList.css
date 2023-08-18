@@ -1,0 +1,41 @@
+.order-list {
+  background-color: #ffffff;
+  padding: 20px;
+}
+
+.order-list h2 {
+  color: #000000;
+  border-bottom: 2px solid #000000;
+}
+
+.filters {
+  display: flex;
+  justify-content: space-between;
+}
+
+.filters select {
+  padding: 5px;
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid #000000;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th, table td {
+  padding: 10px;
+  border: 1px solid #ffffff;
+}
+
+table th {
+  background-color: #ffffff;
+}
+
+button {
+  padding: 5px 10px;
+  background-color: #1b49d1;
+  border: none;
+}

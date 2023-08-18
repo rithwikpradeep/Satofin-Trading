@@ -1,20 +1,16 @@
 /* Existing styles remain unchanged */
-
 .App {
   text-align: center;
 }
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
-
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -25,11 +21,9 @@
   font-size: calc(10px + 2vmin);
   color: rgb(0, 0, 0);
 }
-
 .App-link {
   color: #61dafb;
 }
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -40,20 +34,17 @@
 }
 
 /* Updated styles for stocks layout */
-
 body {
   background-color: #000;
   color: #daa520;
 }
-
 .stocks-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   margin: 0 auto; /* center the container */
-  max-width: 1200px; /* maximum width to ensure content doesn't stretch too wide on large screens */
+  max-width: 800px; /* maximum width to ensure content doesn't stretch too wide on large screens */
 }
-
 .stock-card {
   flex: 0 0 calc(33.33% - 20px); /* width of each card minus the gap */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -71,40 +62,77 @@ body {
   align-items: center;
   justify-content: center;
 }
-
 .stock-card img {
   width: 100px;
   height: 100px;
   object-fit: contain;
   margin-bottom: 10px;
 }
-
 .stock-card:hover {
   background-color: #daa520;
   color: #000;
 }
-
 .app-container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
 .main-content {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
   max-width: 1200px; /* adjust as needed */
   margin: 20px 0;
 }
-
-.stocks-section {
-  flex: 1;
+.stocks-section, .bonds-section, .commodities-section {
+  width: 100%;
+  margin-bottom: 20px;
 }
 
-.right-section {
-  flex: 1;
+/* Category buttons */
+.category-buttons {
   display: flex;
-  flex-direction: column;
-  gap: 20px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.category-buttons button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  background-color: #daa520;
+  color: #000;
+  border: none;
+  border-radius: 25px; /* Rounded shape */
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s; /* Added transform transition */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Initial shadow */
+}
+
+.category-buttons button:hover {
+  background-color: #000000;
+  color: #fff;
+  border: 2px solid ;
+  transform: translateY(-3px); /* Slight lift on hover */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+.category-buttons button:active {
+  transform: translateY(1px); /* Slight press on active */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Reset shadow on active */
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #daa520;
+  text-align: center;
+  width: 100%;
+}
+
+.thick-line {
+  height: 5px; /* Adjust the thickness as needed */
+  background-color: #daa520; /* Color of the line, adjust as needed */
+  width: 80%; /* Adjust the width as needed */
+  margin: 20px auto; /* Centers the line and adds spacing above and below */
 }

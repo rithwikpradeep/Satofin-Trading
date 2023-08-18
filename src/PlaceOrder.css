@@ -1,70 +1,63 @@
+
 .place-order-container {
     margin-top: 100px;
-  margin-right: 50px; /* Move it to the left */
+    margin-right: 50px; /* Move it to the left */
     font-family: 'Roboto', sans-serif;
     background-color: #f4f4f4;
-    padding: 20px;
+    padding: 60px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 400px;
     margin: 0 auto;
 }
-
 .place-order-container h2 {
     color: #333;
-    border-bottom: 2px solid #ddd;
+    border-bottom: 2px solid #ffd700;
     padding-bottom: 10px;
     margin-bottom: 20px;
 }
-
 .place-order-container label {
     display: block;
     margin-bottom: 5px;
     color: #555;
 }
-
 .place-order-container input,
 .place-order-container select,
 .place-order-container button {
     width: 100%;
     padding: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
     border: 1px solid #ddd;
     border-radius: 5px;
     transition: border 0.3s ease;
 }
-
 .place-order-container input:focus,
 .place-order-container select:focus {
     border-color: #555;
     outline: none;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
 }
-
 .place-order-container button {
+    font-weight: bold;
     background-color: #000; /* Yellow */
     color: #ffd700; /* Black */
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
     margin-top: 20px;
 }
-
 .place-order-container button:hover {
     background-color: #ffd700; /* Black */
     color: #000; /* Yellow */
 }
-
 /* Ensure consistent spacing and alignment */
 .place-order-container .MuiFormControl-root {
     margin-bottom: 20px;
 }
-
 /* Style for the dropdown items with logos */
 .place-order-container .MuiMenuItem-root {
     display: flex;
     align-items: center;
 }
-
 .place-order-container .MuiMenuItem-root img {
     width: 20px;
     margin-right: 10px;

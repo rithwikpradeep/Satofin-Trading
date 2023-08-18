@@ -1,3 +1,4 @@
+
 .footer-container {
     border-top: 5px solid #daa520;
     width: 100%;
@@ -10,43 +11,36 @@
     justify-content: center;
     margin: 0;
 }
-
 .footer-logo-section {
     display: flex;
     flex-direction: column;  /* Stack the logo and the text vertically */
     align-items: center;  /* Center the content horizontally */
     margin-bottom: 20px;
 }
-
 .footer-logo {
     width: 200px;  /* Adjust this value to your desired size */
     height: auto;  /* This will maintain the aspect ratio of the logo */
     display: block;  /* This will make the logo a block element, pushing content below it */
     margin: 0 auto 10px auto;  /* This will center the logo and add some space below it */
 }
-
 .footer-logo-section h1 {
     text-align: center;  /* Center the text */
     margin: 0;  /* Remove default margin */
     font-size: 1.5rem;  /* Adjust font size if needed */
 }
-
 .footer-links-section {
     display: flex;
     gap: 20px;
     margin-bottom: 20px;
 }
-
 .footer-link {
     color: #daa520;
     text-decoration: none;
     transition: color 0.3s ease;
 }
-
 .footer-link:hover {
     color: #fff7f7;
 }
-
 .footer-copyright-section p {
     font-size: 0.8rem;
 }
